@@ -4,7 +4,7 @@
 import pymongo
 
 # Don't commit this! Reset this if it is committed
-mongo_password = 'password'
+mongo_password = 'password_here'
 
 # Make sure that dnspython module is installed
 client = pymongo.MongoClient("mongodb+srv://dbUser:<password>@cluster0-cmo65.mongodb.net/test?retryWrites=true&w=majority")
