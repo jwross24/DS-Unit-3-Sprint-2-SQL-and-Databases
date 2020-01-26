@@ -7,16 +7,19 @@ import pymongo
 mongo_password = 'password_here'
 
 # Make sure that dnspython module is installed
-client = pymongo.MongoClient("mongodb+srv://dbUser:<password>@cluster0-cmo65.mongodb.net/test?retryWrites=true&w=majority")
+mongo_url = "mongodb+srv://dbUser:" + mongo_password
+cluster = "@cluster0-cmo65.mongodb.net"
+options_path = "/test?retryWrites=true&w=majority"
+client = pymongo.MongoClient(mongo_url + cluster + options_path)
 db = client.test
 
 print(db)
 
-# print(db.test.count_documents({'x': 1}))
-# db.test.insert_one({'x': 1})
-# print(db.test.count_documents({'x': 1}))
-# db.test.insert_one({'x': 1})
-# print(db.test.count_documents({'x': 1}))
+print(db.test.count_documents({'x': 1}))
+db.test.insert_one({'x': 1})
+print(db.test.count_documents({'x': 1}))
+db.test.insert_one({'x': 1})
+print(db.test.count_documents({'x': 1}))
 
 curs = db.test.find({'x': 1})
 print(list(curs))
